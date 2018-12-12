@@ -1,0 +1,14 @@
+D:\Projects\GameDev\eBook - C# Player's Guide\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\bin\Debug\Chapter - 19 - TicTakToe.exe.config
+D:\Projects\GameDev\eBook - C# Player's Guide\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\bin\Debug\Chapter - 19 - TicTakToe.exe
+D:\Projects\GameDev\eBook - C# Player's Guide\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\bin\Debug\Chapter - 19 - TicTakToe.pdb
+D:\Projects\GameDev\eBook - C# Player's Guide\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\obj\Debug\Chapter - 19 - TicTakToe.csprojAssemblyReference.cache
+D:\Projects\GameDev\eBook - C# Player's Guide\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\obj\Debug\Chapter - 19 - TicTakToe.csproj.CoreCompileInputs.cache
+D:\Projects\GameDev\eBook - C# Player's Guide\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\obj\Debug\Chapter - 19 - TicTakToe.exe
+D:\Projects\GameDev\eBook - C# Player's Guide\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\obj\Debug\Chapter - 19 - TicTakToe.pdb
+C:\Projects\GameDev\The C# Players Guide\The-C--Players-Guide\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\obj\Debug\Chapter - 19 - TicTakToe.csprojAssemblyReference.cache
+C:\Projects\GameDev\The C# Players Guide\The-C--Players-Guide\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\obj\Debug\Chapter - 19 - TicTakToe.csproj.CoreCompileInputs.cache
+C:\Projects\GameDev\The C# Players Guide\The-C--Players-Guide\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\obj\Debug\Chapter - 19 - TicTakToe.exe
+C:\Projects\GameDev\The C# Players Guide\The-C--Players-Guide\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\obj\Debug\Chapter - 19 - TicTakToe.pdb
+C:\Projects\GameDev\The C# Players Guide\The-C--Players-Guide\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\bin\Debug\Chapter - 19 - TicTakToe.exe.config
+C:\Projects\GameDev\The C# Players Guide\The-C--Players-Guide\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\bin\Debug\Chapter - 19 - TicTakToe.exe
+C:\Projects\GameDev\The C# Players Guide\The-C--Players-Guide\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\Chapter - 19 - TicTakToe\bin\Debug\Chapter - 19 - TicTakToe.pdb

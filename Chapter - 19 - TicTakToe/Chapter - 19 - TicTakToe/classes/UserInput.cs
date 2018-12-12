@@ -35,48 +35,48 @@ namespace Chapter_19_TicTakToe
 
             if (command.Key == ConsoleKey.D9 || command.Key == ConsoleKey.NumPad9)
             {
-                if (GameState.isSlotFree[9])
-                { Engine.PlaceToken(9); GameState.isSlotFree[9] = false; }
+                if (GameState.isSlotTaken[9] == false)
+                { Engine.PlaceToken(9); GameState.isSlotTaken[9] = true; GameState.playerTokens[9] = Engine.player; }
             }
             if (command.Key == ConsoleKey.D8 || command.Key == ConsoleKey.NumPad8)
             {
-                if (GameState.isSlotFree[8])
-                { Engine.PlaceToken(8); GameState.isSlotFree[8] = false; }
+                if (GameState.isSlotTaken[8] == false)
+                { Engine.PlaceToken(8); GameState.isSlotTaken[8] = true; GameState.playerTokens[8] = Engine.player; }
             }
             if (command.Key == ConsoleKey.D7 || command.Key == ConsoleKey.NumPad7)
             {
-                if (GameState.isSlotFree[7])
-                { Engine.PlaceToken(7); GameState.isSlotFree[7] = false; }
+                if (GameState.isSlotTaken[7] == false)
+                { Engine.PlaceToken(7); GameState.isSlotTaken[7] = true; GameState.playerTokens[7] = Engine.player; }
             }
             if (command.Key == ConsoleKey.D6 || command.Key == ConsoleKey.NumPad6)
             {
-                if (GameState.isSlotFree[6])
-                { Engine.PlaceToken(6); GameState.isSlotFree[6] = false; }
+                if (GameState.isSlotTaken[6] == false)
+                { Engine.PlaceToken(6); GameState.isSlotTaken[6] = true; GameState.playerTokens[6] = Engine.player; }
             }
             if (command.Key == ConsoleKey.D5 || command.Key == ConsoleKey.NumPad5)
             {
-                if (GameState.isSlotFree[5])
-                { Engine.PlaceToken(5); GameState.isSlotFree[5] = false; }
+                if (GameState.isSlotTaken[5] == false)
+                { Engine.PlaceToken(5); GameState.isSlotTaken[5] = true; GameState.playerTokens[5] = Engine.player; }
             }
             if (command.Key == ConsoleKey.D4 || command.Key == ConsoleKey.NumPad4)
             {
-                if (GameState.isSlotFree[4])
-                { Engine.PlaceToken(4); GameState.isSlotFree[4] = false; }
+                if (GameState.isSlotTaken[4] == false)
+                { Engine.PlaceToken(4); GameState.isSlotTaken[4] = true; GameState.playerTokens[4] = Engine.player; }
             }
             if (command.Key == ConsoleKey.D3 || command.Key == ConsoleKey.NumPad3)
             {
-                if (GameState.isSlotFree[3])
-                { Engine.PlaceToken(3); GameState.isSlotFree[3] = false; }
+                if (GameState.isSlotTaken[3] == false)
+                { Engine.PlaceToken(3); GameState.isSlotTaken[3] = true; GameState.playerTokens[3] = Engine.player; }
             }
             if (command.Key == ConsoleKey.D2 || command.Key == ConsoleKey.NumPad2)
             {
-                if (GameState.isSlotFree[2])
-                { Engine.PlaceToken(2); GameState.isSlotFree[2] = false; }
+                if (GameState.isSlotTaken[2] == false)
+                { Engine.PlaceToken(2); GameState.isSlotTaken[2] = true; GameState.playerTokens[2] = Engine.player; }
             }
             if (command.Key == ConsoleKey.D1 || command.Key == ConsoleKey.NumPad1)
             {
-                if (GameState.isSlotFree[1])
-                { Engine.PlaceToken(1); GameState.isSlotFree[1] = false; }
+                if (GameState.isSlotTaken[1] == false)
+                { Engine.PlaceToken(1); GameState.isSlotTaken[1] = true; GameState.playerTokens[1] = Engine.player; }
             }
             if (command.Key == ConsoleKey.N)
             {
