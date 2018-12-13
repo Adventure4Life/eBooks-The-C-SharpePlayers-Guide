@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C6416C3B-4B17-421D-B1A9-063D92449399}</ProjectGuid>
+    <ProjectGuid>{3804C4B3-A049-4CB7-9C30-FAEC7AE9482F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Chapter___19___TicTakToe</RootNamespace>
     <AssemblyName>Chapter - 19 - TicTakToe</AssemblyName>
@@ -43,11 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="classes\ConsoleBuffer.cs" />
-    <Compile Include="classes\Engine.cs" />
-    <Compile Include="classes\GameState.cs" />
-    <Compile Include="classes\PrintBuffer.cs" />
-    <Compile Include="classes\UserInput.cs" />
+    <Compile Include="Classes\ConsoleBuffer.cs" />
+    <Compile Include="Classes\Engine.cs" />
+    <Compile Include="Classes\GameState.cs" />
+    <Compile Include="Classes\PrintBuffer.cs" />
+    <Compile Include="Classes\UserInput.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

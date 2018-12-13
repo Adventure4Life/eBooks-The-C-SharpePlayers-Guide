@@ -8,98 +8,49 @@ namespace Chapter_19_TicTakToe
 {
     class GameState
     {
+        static public bool rungame; // = true;
+        static public bool newgame; // = true;
+        static public string winner; // = "inProgress";
+        static public bool[] isSlotTaken = new bool[10];  //{ get; set; } // = { true, false, true, false, false, false, false, false, false, false };
+        static public string[] playerTokens = new string[10]; //{ get; set; } // = { '_', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
-        static public bool rungame = true;
-        static public bool[] isSlotTaken { get; set; } = { true, false, true, false, false, false, false, false, false, false };
-        static public char[] playerTokens { get; set; } = { '_', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-        static public string winner = "inProgress";
-
-        //Check for End of Game
-        static public bool GameEndTest()
+        static public void StartGame()
         {
-            // check 789, 456, 123 == X || Y - Winner
-            // 147, 258, 369 == X || Y
-            // check 159, 357 == X || Y - Winner
-            // Check 123456789 == X || Y == draw
+            // Initialise rungame and winner
+            rungame = true;
+            newgame = true;
+            winner = "inProgress";
 
-            bool draw = false;
-            for (int i = 1; i < isSlotTaken.Length;i++)
+            // Initialise isSlotTaken all False, but 1st is true.
+            for (int i = 0; i < isSlotTaken.Length; i++ )
             {
-                if (isSlotTaken[i])
-                { draw = true; }
-                else { draw = false; }
+                isSlotTaken[i] = false;
             }
+            isSlotTaken[0] = true;
 
-            if (draw) { rungame = false; winner = "Draw"; }
-
-            /*
-            //Test Horizontals
-            if (isSlotTaken[1] && isSlotTaken[2] && isSlotTaken[3])
-            { rungame = false; }
-            if (isSlotTaken[4] && isSlotTaken[5] && isSlotTaken[6])
-            { rungame = false; }
-            if (isSlotTaken[7] && isSlotTaken[8] && isSlotTaken[9])
-            { rungame = false; }
-
-            //Test Verticals
-            if (isSlotTaken[1] && isSlotTaken[4] && isSlotTaken[7])
-            { rungame = false; }
-            if (isSlotTaken[2] && isSlotTaken[5] && isSlotTaken[6])
-            { rungame = false; }
-            if (isSlotTaken[3] && isSlotTaken[6] && isSlotTaken[6])
-            { rungame = false; }
-
-            //test Diagonals
-            if (isSlotTaken[1] && isSlotTaken[5] && isSlotTaken[9])
-            { rungame = false; }
-            if (isSlotTaken[3] && isSlotTaken[5] && isSlotTaken[7])
-            { rungame = false; }
-            */
-
-
-
-            return rungame;
+            // Initialise playerTokens all False, but 1st is true.
+            for (int i = 0; i < playerTokens.Length; i++)
+            {
+                playerTokens[i] = i.ToString();
+            }
+            playerTokens[0] = "_";
         }
 
         static public void SetGameEnd()
         {
+            newgame = false;
             rungame = false;
         }
 
-        static public void ClearBoard()
+        static public bool PlayingTheGame()
         {
-            for (int i=0; i< isSlotTaken.Length; i++)
-            { isSlotTaken[i] = false; }
+            return rungame;
+        }
+
+        static public bool RestartingGame()
+        {
+            return newgame;
         }
 
     }
 }
-
-//static private char[,] board { get; set; } = new char[3, 3];
-/*
-// Constructor setting each location to the activation value for easy debugging using the PrintBoard() member.
-static GameState()
-{
-    int setting = 7;
-    for (int x = 0; x < board.GetLength(0); x++)
-    {
-        if (x == 1) { setting = 4; } else if (x == 2) { setting = 1; }
-        for (int y = 0; y < board.GetLength(1); y++)
-        {
-            board[x, y] = Convert.ToChar(setting.ToString());
-            setting++;
-        }
-    }
-}
-// Just a quick Debug thing to print out the board in a quick way to see what is going on.
-public static void PrintBoard()
-{
-    for (int x = 0; x < board.GetLength(0); x++)
-    {
-        for (int y = 0; y < board.GetLength(1); y++)
-        {
-            Console.Write(board[x, y]);
-        }
-        Console.WriteLine($"     - X = : {x}");
-    }
-}*/

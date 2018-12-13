@@ -8,18 +8,24 @@ namespace Chapter_19_TicTakToe
 {
     class PrintBuffer
     {
-        public static void Print(List<string> buffer, string action)
+        static private void PrintFrameBuffer()
         {
-            if (action == "NewFrame" || action == "StartFrame") { Console.SetCursorPosition(0, 0); }
-            if (action == "FirstFrame" || action == "EndGame") { Console.Clear(); }
-            foreach (var line in buffer)
+            foreach (var line in ConsoleBuffer.frame)
             {
                 Console.WriteLine(line);
             }
-            if (action == "StartFrame")
-            {
-                Console.Write("\n   Press N to QUIT or ANY KEY to Play : ");
-            }
+        }
+
+        static public void PrintStartFrame()
+        {
+            PrintFrameBuffer();
+            Console.Write("\n   Press N to QUIT or ANY KEY to Play : ");
+        }
+
+        static public void PrintNewFrame()
+        {
+            Console.Clear();
+            PrintFrameBuffer();
         }
     }
 }
