@@ -16,7 +16,7 @@ namespace Chapter_19_TicTakToe
         private static List<string> Initilise(string key)
         {
             List<string> v = new List<string>();
-            if (key == "StartGame")
+            if (key == "NewGame")
             {
                 v.Add(" 	    _   _      _             _             ");
                 v.Add("	   | | (_)    | |           | |                ");
@@ -106,6 +106,11 @@ namespace Chapter_19_TicTakToe
             return v;
         }
 
+        public static void NewGame()
+        {
+            frame = Initilise("NewGame");
+        }
+
         public static void GameOver()
         {
             frame = Initilise("GameOver");
@@ -114,6 +119,82 @@ namespace Chapter_19_TicTakToe
         public static void NewGameBoard()
         {
             frame = Initilise("NewBoard");
+        }
+
+        public static void PlaceToken(int num, string player)
+        {
+            int row = 0;
+            int col = 0;
+            //Set cursor locations to draw the player tokens.
+            switch (num)
+            {
+                case 1:
+                    row = 21;
+                    col = 11;
+                    break;
+                case 2:
+                    row = 21;
+                    col = 27;
+                    break;
+                case 3:
+                    row = 21;
+                    col = 43;
+                    break;
+                case 4:
+                    row = 14;
+                    col = 11;
+                    break;
+                case 5:
+                    row = 14;
+                    col = 27;
+                    break;
+                case 6:
+                    row = 14;
+                    col = 43;
+                    break;
+                case 7:
+                    row = 7;
+                    col = 11;
+                    break;
+                case 8:
+                    row = 7;
+                    col = 27;
+                    break;
+                case 9:
+                    row = 7;
+                    col = 43;
+                    break;
+            }
+
+            int posInstert = 0;
+            if (player == "X")
+            {
+                for (int i = row; i < row + X.Count; i++)
+                {
+                    string source = frame[i];
+                    string insert = X[posInstert];
+                    var sb = new StringBuilder(source);
+                    sb.Remove(col, X[posInstert].Length);
+                    sb.Insert(col, insert);
+                    frame[i] = sb.ToString();
+                    posInstert++;
+                }
+                Engine.player = "Y";
+            }
+            else if (player == "Y")
+            {
+                for (int i = row; i < row + X.Count; i++)
+                {
+                    string source = frame[i];
+                    string insert = Y[posInstert];
+                    var sb = new StringBuilder(source);
+                    sb.Remove(col, Y[posInstert].Length);
+                    sb.Insert(col, insert);
+                    frame[i] = sb.ToString();
+                    posInstert++;
+                }
+                Engine.player = "X";
+            }
         }
     }
 }

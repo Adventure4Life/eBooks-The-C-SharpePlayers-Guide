@@ -19,12 +19,26 @@ namespace Chapter_19_TicTakToe
         static public void PrintStartFrame()
         {
             PrintFrameBuffer();
-            Console.Write("\n   Press N to QUIT or ANY KEY to Play : ");
+            Console.Write("\n   Press Q to QUIT or ANY KEY to Play : ");
         }
 
         static public void PrintNewFrame()
         {
             Console.Clear();
+            PrintFrameBuffer();
+        }
+
+        static public void PrintUserInput()
+        {
+            int col = 70;
+            int row = 14;
+            Console.SetCursorPosition(col, row);
+            Console.Write("Press a Number between 1 and 9 : ");
+        }
+
+        static public void PlaceToken()
+        {
+            Console.SetCursorPosition(0, 0);
             PrintFrameBuffer();
         }
     }

@@ -11,40 +11,48 @@ namespace Chapter_19_TicTakToe
         static void Main(string[] args)
         {
             //Initialise the game and display the welcome screen
-            Engine.StartGame();
-            UserInput.StartGame();
+            Engine.Initilise();
 
             do
             {
+                // Welcome Screen / new Game Screen
+                if (!GameState.PlayingTheGame() && GameState.RestartingGame() && !GameState.ReadyForScore())
+                {
+                    Engine.NewGame();
+                    UserInput.StartGame();
+                }
+
                 // If the we are PLAYING THE GAME and we are STARTING A NEW GAME - newGame!
-                if (GameState.PlayingTheGame() && GameState.RestartingGame())
+                if (GameState.PlayingTheGame() && GameState.RestartingGame() && !GameState.ReadyForScore())
                 {
                     Engine.NewGameBoard();
                 }
 
                 //The Actual Game Input Loop
-                if (GameState.PlayingTheGame())
+                if (GameState.PlayingTheGame() && !GameState.RestartingGame() && !GameState.ReadyForScore())
                 {
+                    PrintBuffer.PrintUserInput();
                     UserInput.Input();
                 }
 
+                // if we have STOPPED PLAYING THE GAME but we have NOT STARTED A NEW GAME - Score
+                if (!GameState.PlayingTheGame() && !GameState.RestartingGame() && GameState.ReadyForScore())
+                {
+                    Console.Clear();
+                    Console.WriteLine("*************************************");
+                }
+
                 // If the we are NOT PLAYING THE GAME and we are NOT STARTING A NEW GAME - quit!
-                if (!GameState.PlayingTheGame() && !GameState.RestartingGame())
+                if (!GameState.PlayingTheGame() && !GameState.RestartingGame() && !GameState.ReadyForScore())
                 {
                     Engine.GameOver();
                 }
 
             } while (GameState.PlayingTheGame());
 
-            /*while(GameState.PlayingTheGame())
-            {
-                Console.WriteLine("LOOP IS WORKING");
-            }*/
-
-
 
             //TMP DEBUGGING
-                Debuging();
+            Debuging();
         }
 
         static void Debuging()

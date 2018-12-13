@@ -20,10 +20,17 @@ namespace Chapter_19_TicTakToe
         }
 
         // This loads the very 1st screen.. the "Start Screen"
-        public static void StartGame()
+        public static void Initilise()
         {
-            GameState.StartGame();
+            GameState.Initilise();
+        }
+
+        // This loads the very 1st screen.. the "Start Screen"
+        public static void NewGame()
+        {
+            ConsoleBuffer.NewGame();
             PrintBuffer.PrintStartFrame();
+            GameState.rungame = true;
         }
 
         public static void NewGameBoard()
@@ -37,6 +44,14 @@ namespace Chapter_19_TicTakToe
         {
             ConsoleBuffer.GameOver();
             PrintBuffer.PrintNewFrame();
+        }
+
+        // This is the main drawing function to pace the player tokens on the board. 
+        // The majority of the game happens here.
+        public static void PlaceToken(int num)
+        {
+            ConsoleBuffer.PlaceToken(num, player);
+            PrintBuffer.PlaceToken();
         }
     }
 }

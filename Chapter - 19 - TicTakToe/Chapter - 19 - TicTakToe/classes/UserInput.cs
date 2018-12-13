@@ -12,7 +12,7 @@ namespace Chapter_19_TicTakToe
         {
             ConsoleKeyInfo command;
             command = Console.ReadKey();
-            if (command.Key == ConsoleKey.Escape || command.Key == ConsoleKey.Q || command.Key == ConsoleKey.N)
+            if (command.Key == ConsoleKey.Escape || command.Key == ConsoleKey.Q)
             {
                 GameState.SetGameEnd();
             }
@@ -20,13 +20,27 @@ namespace Chapter_19_TicTakToe
 
         public static void Input()
         {
-            int col = ConsoleBuffer.frame[12].Length + 10;
-            int row = 14;
             ConsoleKeyInfo command;
-
-            Console.SetCursorPosition(col, row);
-            Console.Write("Press a Number between 1 and 9 : "); row++;
             command = Console.ReadKey();
+
+            if (char.IsDigit(command.KeyChar))
+            {
+                int key = int.Parse(command.KeyChar.ToString());
+                if (GameState.isSlotTaken[key] == false)
+                {
+                    Engine.PlaceToken(key);
+
+                    GameState.isSlotTaken[0] = true; // this is always true
+                    GameState.isSlotTaken[key] = true;
+
+                    GameState.playerTokens[0] = "_";
+                    GameState.playerTokens[key] = Engine.player;
+                }
+            }
+            else if (command.Key == ConsoleKey.Escape || command.Key == ConsoleKey.Q)
+            {
+                GameState.SetGameEnd();
+            }
         }
     }
 }
