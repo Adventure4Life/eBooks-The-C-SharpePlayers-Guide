@@ -16,6 +16,7 @@ namespace Chapter_19_TicTakToe
         static public bool drawScoreBoard { get; set; } = false;
         static public bool drawGameOver { get; set; } = false;
 
+        static private bool couldBeDraw = true;
 
         static public bool score; // = true;
         static public string winner; // = "inProgress";
@@ -60,9 +61,30 @@ namespace Chapter_19_TicTakToe
 
         static public bool GameHasNotEnded()
         {
-            CheckForWinAt(1,2,3);
+            couldBeDraw = true;
+            CheckWinDiagonal();
+            CheckWinHorizontal();
+            CheckWinVertical();
             CheckForDraw();
             return rungame;
+        }
+        static public void CheckWinDiagonal()
+        {
+            CheckForWinAt(1, 5, 9);
+            CheckForWinAt(3, 5, 7);
+        }
+        static public void CheckWinVertical()
+        {
+            CheckForWinAt(1, 4, 7);
+            CheckForWinAt(2, 5, 8);
+            CheckForWinAt(3, 6, 9);
+        }
+
+        static public void CheckWinHorizontal()
+        {
+            CheckForWinAt(1, 2, 3);
+            CheckForWinAt(4, 5, 6);
+            CheckForWinAt(7, 8, 9);
         }
 
         static private void CheckForWinAt(int a, int b, int c)
@@ -90,24 +112,29 @@ namespace Chapter_19_TicTakToe
                 for (int i = 0; i < wonX.Length; i++) { wonX[i] = false; }
                 winner = "winer_X";
                 Engine.SetShowScore();
+                couldBeDraw = false;
             }
             else if (yRow)
             {
                 for (int i = 0; i < playerTokens.Length; i++) { playerTokens[i] = "_"; }
                 for (int i = 0; i < wonX.Length; i++) { wonX[i] = false; }
-                winner = "winer_Y";
+                winner = "winer_O";
                 Engine.SetShowScore();
+                couldBeDraw = false;
             }
         }
 
         static private void CheckForDraw()
         {
             // Check for Draw
-            bool draw = isSlotTaken.All(x => x);
-            if (draw)
+            if (couldBeDraw)
             {
-                winner = "Draw";
-                Engine.SetShowScore();
+                bool draw = isSlotTaken.All(x => x);
+                if (draw)
+                {
+                    winner = "Draw";
+                    Engine.SetShowScore();
+                }
             }
         }
     }
