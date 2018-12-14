@@ -27,7 +27,7 @@ namespace Chapter_19_TicTakToe
                 Engine.Initilise();
                 Engine.SetGameEnd();
             }
-            else if (command.Key == ConsoleKey.N)
+            else if (command.Key == ConsoleKey.N || command.Key == ConsoleKey.Spacebar)
             {
                 Engine.NewGameBoard();
             }
@@ -50,6 +50,8 @@ namespace Chapter_19_TicTakToe
 
                     GameState.playerTokens[0] = "_";
                     GameState.playerTokens[key] = Engine.player;
+                    //Console.WriteLine(Engine.player);
+                    //Console.ReadKey();
                 }
             }
             else if (command.Key == ConsoleKey.Escape || command.Key == ConsoleKey.Q)

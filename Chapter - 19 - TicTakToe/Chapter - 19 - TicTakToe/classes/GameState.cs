@@ -60,15 +60,55 @@ namespace Chapter_19_TicTakToe
 
         static public bool GameHasNotEnded()
         {
+            CheckForWinAt(1,2,3);
+            CheckForDraw();
+            return rungame;
+        }
+
+        static private void CheckForWinAt(int a, int b, int c)
+        {
+            // Check for 123
+            bool[] wonX = new bool[c+1]; for (int i = 0; i < wonX.Length; i++) { wonX[i] = false; }
+            bool[] wonY = new bool[c+1]; for (int i = 0; i < wonY.Length; i++) { wonY[i] = false; }
+
+            //if (won.Count == 3)
+            if (isSlotTaken[a] && isSlotTaken[b] && isSlotTaken[c])
+            {
+                for (int i = 1; i < wonX.Length; i++)
+                {
+                    if (playerTokens[i] == "Y") { wonX[i] = true; } // These are reversed due to how the play token increments. : (
+                    if (playerTokens[i] == "X") { wonY[i] = true; } // These are reversed due to how the play token increments. : (
+                }
+            }
+
+            bool xRow = wonX[a] && wonX[b] && wonX[c];
+            bool yRow = wonY[a] && wonY[b] && wonY[c];
+
+            if (xRow)
+            {
+                for (int i = 0; i < playerTokens.Length; i++) { playerTokens[i] = "_"; }
+                for (int i = 0; i < wonX.Length; i++) { wonX[i] = false; }
+                winner = "winer_X";
+                Engine.SetShowScore();
+            }
+            else if (yRow)
+            {
+                for (int i = 0; i < playerTokens.Length; i++) { playerTokens[i] = "_"; }
+                for (int i = 0; i < wonX.Length; i++) { wonX[i] = false; }
+                winner = "winer_Y";
+                Engine.SetShowScore();
+            }
+        }
+
+        static private void CheckForDraw()
+        {
             // Check for Draw
             bool draw = isSlotTaken.All(x => x);
             if (draw)
             {
-                Engine.SetShowScore();
                 winner = "Draw";
+                Engine.SetShowScore();
             }
-
-            return rungame;
         }
     }
 }
