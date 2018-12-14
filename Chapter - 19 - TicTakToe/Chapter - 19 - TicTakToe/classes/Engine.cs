@@ -16,34 +16,73 @@ namespace Chapter_19_TicTakToe
         static Engine()
         {
             Random randomPlayer = new Random();
-            if (randomPlayer.Next(2) == 0) { player = "Y"; }
         }
 
-        // This loads the very 1st screen.. the "Start Screen"
         public static void Initilise()
         {
+            Random randomPlayer = new Random();
+            player = "X";
+            if (randomPlayer.Next(2) == 0) { player = "Y"; }
             GameState.Initilise();
         }
 
-        // This loads the very 1st screen.. the "Start Screen"
-        public static void NewGame()
-        {
-            ConsoleBuffer.NewGame();
-            PrintBuffer.PrintStartFrame();
-            GameState.rungame = true;
-        }
+        //******************************************
+        //************* Game Functions *************
+        //******************************************
 
-        public static void NewGameBoard()
+        public static void PlayGame()
         {
-            ConsoleBuffer.NewGameBoard();
-            PrintBuffer.PrintNewFrame();
-            GameState.newgame = false;
+            PrintBuffer.PrintUserInput();
+            UserInput.Input();
         }
 
         public static void GameOver()
         {
             ConsoleBuffer.GameOver();
             PrintBuffer.PrintNewFrame();
+        }
+
+        //**************************************************
+        //************* Start of Game Switches *************
+        //**************************************************
+
+        // This loads the very 1st screen.. the "Start Screen"
+        public static void DrawStartScreen()
+        {
+            // Set Switches
+            GameState.drawStartScreen = true;
+            GameState.drawEmptyBoard = true;
+
+            GameState.loopInput = false;
+            GameState.rungame = false;
+            GameState.drawScoreBoard = false;
+            GameState.drawGameOver = false;
+            
+            ConsoleBuffer.NewGame();
+            PrintBuffer.PrintStartFrame();
+            UserInput.StartOrQuitGame();
+        }
+
+        public static void NewGameBoard()
+        {
+            // Set Switches
+            Engine.Initilise();
+            GameState.rungame = true;
+            GameState.loopInput = true;
+
+            GameState.drawEmptyBoard = false;
+            GameState.drawStartScreen = false;
+            GameState.drawScoreBoard = false;
+
+            ConsoleBuffer.NewGameBoard();
+            PrintBuffer.PrintNewFrame();
+        }
+
+        public static void ScoreBoardScreen()
+        {
+            ConsoleBuffer.Results(GameState.winner);
+            PrintBuffer.PrintScore();
+            UserInput.ScoreBoardScreen();
         }
 
         // This is the main drawing function to pace the player tokens on the board. 
@@ -53,5 +92,34 @@ namespace Chapter_19_TicTakToe
             ConsoleBuffer.PlaceToken(num, player);
             PrintBuffer.PlaceToken();
         }
+
+        //*******************************************
+        //************* Set Game States *************
+        //*******************************************
+
+        static public void SetGameEnd()
+        {
+            // Set Switches
+            GameState.drawGameOver = true;
+
+            GameState.loopInput = false;
+            GameState.drawStartScreen = false;
+            GameState.rungame = false;
+            GameState.drawEmptyBoard = false;
+            GameState.drawScoreBoard = false;
+        }
+
+        static public void SetShowScore()
+        {
+            // Set Switches
+            GameState.drawScoreBoard = true;
+            GameState.rungame = true;
+
+            GameState.loopInput = false;
+            GameState.drawGameOver = false;
+            GameState.drawStartScreen = false;
+            GameState.drawEmptyBoard = false;
+        }
+
     }
 }

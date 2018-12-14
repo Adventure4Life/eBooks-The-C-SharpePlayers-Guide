@@ -13,9 +13,53 @@ namespace Chapter_19_TicTakToe
             //Initialise the game and display the welcome screen
             Engine.Initilise();
 
-            do
-            {
-                // Welcome Screen / new Game Screen
+            while (GameState.GameHasNotEnded())
+            { 
+                // ** Display the Start Screen **
+                if (GameState.drawStartScreen)
+                {
+                    Engine.DrawStartScreen();
+                }
+
+                if (GameState.drawScoreBoard)
+                {
+                    Engine.ScoreBoardScreen();
+                }
+                
+                // ** Main Game Loop **
+                if (GameState.loopInput)
+                {
+                    Engine.PlayGame();
+                }
+
+                // ** Game Over... Quit or New Game (Draw New Board).
+                if (GameState.drawGameOver)
+                {
+                    Engine.GameOver();
+                }
+                else if (GameState.drawEmptyBoard)
+                {
+                    Engine.NewGameBoard();
+                }
+            }
+
+
+            //TMP DEBUGGING
+            Debuging();
+        }
+
+        static void Debuging()
+        {
+            //Tmp Debug
+            Console.WriteLine("                                  *** END OF PROGRAM ***\n");
+            Console.ReadKey();
+        }
+    }
+}
+
+/*
+
+                    // Welcome Screen / new Game Screen
                 if (!GameState.PlayingTheGame() && GameState.RestartingGame() && !GameState.ReadyForScore())
                 {
                     Engine.NewGame();
@@ -47,25 +91,10 @@ namespace Chapter_19_TicTakToe
                 {
                     Engine.GameOver();
                 }
-
-            } while (GameState.PlayingTheGame());
-
-
-            //TMP DEBUGGING
-            Debuging();
-        }
-
-        static void Debuging()
-        {
-            //Tmp Debug
-            //Console.WriteLine("*** END OF PROGRAM ***\n");
-            Console.ReadKey();
-        }
-    }
-}
-
-/*
-        // Test Contents of "isSlotTaken" 
+    
+    
+    
+    // Test Contents of "isSlotTaken" 
         for (int i = 0; i < GameState.isSlotTaken.Length; i++)
         {
             if (GameState.isSlotTaken[i])

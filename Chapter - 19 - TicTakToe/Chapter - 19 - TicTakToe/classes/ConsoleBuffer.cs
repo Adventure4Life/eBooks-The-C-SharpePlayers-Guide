@@ -12,6 +12,7 @@ namespace Chapter_19_TicTakToe
         private static List<string> X = Initilise("X");
         private static List<string> Y = Initilise("O");
         public static List<string> frame { get; set; } = Initilise("StartGame"); // defaults as the help frame
+        public static List<string> results { get; set; }
 
         private static List<string> Initilise(string key)
         {
@@ -104,6 +105,27 @@ namespace Chapter_19_TicTakToe
                 v.Add("           ╚═════════════╝1╚═════════════╝2╚═════════════╝3");
             }
             return v;
+        }
+
+        public static List<string> Results(string key)
+        {
+            List<string> r = new List<string>();
+            if (key == "Draw")
+            {
+                r.Add(@"                   ___                     _ ");
+                r.Add(@"                  /   \_ __ __ ___      __/ \");
+                r.Add(@"                 / /\ / '__/ _` \ \ /\ / /  /");
+                r.Add(@"                / /_//| | | (_| |\ V  V /\_/");
+                r.Add(@"               /___,' |_|  \__,_| \_/\_/\/");
+                r.Add("");
+                r.Add(@"  /\ \ \___     ___  _ __   ___  / / /\ \ (_)_ __  ___   / \");
+                r.Add(@" /  \/ / _ \   / _ \| '_ \ / _ \ \ \/  \/ / | '_ \/ __| /  /");
+                r.Add(@"/ /\  / (_) | | (_) | | | |  __/  \  /\  /| | | | \__ \/\_/ ");
+                r.Add(@"\_\ \/ \___/   \___/|_| |_|\___|   \/  \/ |_|_| |_|___/\/");
+                r.Add("");
+            }
+            results = r;
+            return r;
         }
 
         public static void NewGame()

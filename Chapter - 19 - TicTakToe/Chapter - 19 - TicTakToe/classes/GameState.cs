@@ -8,8 +8,15 @@ namespace Chapter_19_TicTakToe
 {
     class GameState
     {
-        static public bool rungame; // = true;
-        static public bool newgame; // = true;
+        static public bool rungame { get; set; } = true;
+        static public bool drawStartScreen { get; set; } = true;
+        static public bool loopInput { get; set; } = true;
+
+        static public bool drawEmptyBoard { get; set; } = false;
+        static public bool drawScoreBoard { get; set; } = false;
+        static public bool drawGameOver { get; set; } = false;
+
+
         static public bool score; // = true;
         static public string winner; // = "inProgress";
         static public bool[] isSlotTaken = new bool[10];  //{ get; set; } // = { true, false, true, false, false, false, false, false, false, false };
@@ -17,9 +24,16 @@ namespace Chapter_19_TicTakToe
 
         static public void Initilise()
         {
-            // Initialise rungame and winner
-            rungame = false;
-            newgame = true;
+            // Initilise State Switches
+            rungame = true;
+            drawStartScreen = true;
+            loopInput = true;
+
+            drawEmptyBoard = false;
+            drawScoreBoard = false;
+            drawGameOver = false;
+
+            // Initialise Print variables
             score = false;
             winner = "inProgress";
 
@@ -36,35 +50,25 @@ namespace Chapter_19_TicTakToe
                 playerTokens[i] = i.ToString();
             }
             playerTokens[0] = "_";
-        }
 
-        static public void SetScore()
-        {
-            newgame = false;
-            rungame = false;
-            score = true;
-        }
-
-        static public void SetGameEnd()
-        {
-            newgame = false;
-            rungame = false;
-            score = false;
-        }
-
-        static public bool PlayingTheGame()
-        {
-            return rungame;
-        }
-
-        static public bool RestartingGame()
-        {
-            return newgame;
         }
 
         static public bool ReadyForScore()
         {
             return score;
+        }
+
+        static public bool GameHasNotEnded()
+        {
+            // Check for Draw
+            bool draw = isSlotTaken.All(x => x);
+            if (draw)
+            {
+                Engine.SetShowScore();
+                winner = "Draw";
+            }
+
+            return rungame;
         }
     }
 }
